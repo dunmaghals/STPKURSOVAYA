@@ -23,7 +23,7 @@ namespace WindowsFormsAppSTP
         }
         public void ComboBox_Load(object sender, EventArgs e)
         {
-            comboBox1.Items.Clear();
+            //comboBox1.Items.Clear();
             string currentPath = Directory.GetCurrentDirectory();// Берём координаты текущей директории
             int sch = Convert.ToInt32(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(2).First());// Берём количество существующих файлов/нумерация
             for (int i = 0; i <sch; i++)
@@ -31,7 +31,7 @@ namespace WindowsFormsAppSTP
                 if (File.Exists(Path.Combine(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt"))) // Если файл с заметкой n существует
                 {
                     Name = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").First();// Читаем название заметки
-                    comboBox1.Items.Add($"{Name}");// Добавляем в комбо бокс
+                    //comboBox1.Items.Add($"{Name}");// Добавляем в комбо бокс
                 }
                 else// Если файл с заметкой не существует
                 {
@@ -49,8 +49,8 @@ namespace WindowsFormsAppSTP
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string currentPath = Directory.GetCurrentDirectory();// Берём координаты текущей директории
-            string Value = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{comboBox1.SelectedIndex}.txt").Skip(1).First();// Берём текст заметки
-            textBox1.Text = Value;// Записываем текст в текст бокс
+            //string Value = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{comboBox1.SelectedIndex}.txt").Skip(1).First();// Берём текст заметки
+            //textBox1.Text = Value;// Записываем текст в текст бокс
         }
     }
 }
