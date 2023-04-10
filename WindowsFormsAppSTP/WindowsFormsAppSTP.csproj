@@ -43,6 +43,9 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuPictureBox">
       <HintPath>..\..\STPKURSOVAYA4\BunifuCrack-main\Bunifu.UI.WinForms.BunifuPictureBox.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuSlider">
+      <HintPath>..\BunifuCrack-main\Bunifu.UI.WinForms.BunifuSlider.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />

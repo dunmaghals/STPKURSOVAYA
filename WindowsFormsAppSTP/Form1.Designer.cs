@@ -86,7 +86,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(282, 284);
+            this.textBox4.Location = new System.Drawing.Point(282, 288);
             this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(240, 22);
@@ -97,7 +97,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(336, 319);
+            this.label2.Location = new System.Drawing.Point(328, 338);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(128, 16);
@@ -151,7 +151,7 @@
             this.bunifuButton1.IdleIconLeftImage = null;
             this.bunifuButton1.IdleIconRightImage = null;
             this.bunifuButton1.IndicateFocus = false;
-            this.bunifuButton1.Location = new System.Drawing.Point(297, 348);
+            this.bunifuButton1.Location = new System.Drawing.Point(297, 357);
             this.bunifuButton1.Name = "bunifuButton1";
             this.bunifuButton1.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton1.OnDisabledState.BorderRadius = 50;
