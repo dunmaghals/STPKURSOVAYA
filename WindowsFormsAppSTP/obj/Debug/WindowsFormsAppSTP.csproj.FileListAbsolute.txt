@@ -36,3 +36,5 @@ C:\Users\Dgeck\Source\Repos\STPKURSOVAYA23\WindowsFormsAppSTP\obj\Debug\WindowsF
 C:\Users\Dgeck\Source\Repos\STPKURSOVAYA23\WindowsFormsAppSTP\obj\Debug\WindowsFormsAppSTP.csproj.CopyComplete
 C:\Users\Dgeck\Source\Repos\STPKURSOVAYA23\WindowsFormsAppSTP\obj\Debug\WindowsFormsAppSTP.exe
 C:\Users\Dgeck\Source\Repos\STPKURSOVAYA23\WindowsFormsAppSTP\obj\Debug\WindowsFormsAppSTP.pdb
+C:\Users\Dgeck\source\repos\STPKURSOVAYA23\WindowsFormsAppSTP\obj\Debug\WindowsFormsAppSTP.Form4.resources
+C:\Users\Dgeck\source\repos\STPKURSOVAYA23\WindowsFormsAppSTP\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.dll
