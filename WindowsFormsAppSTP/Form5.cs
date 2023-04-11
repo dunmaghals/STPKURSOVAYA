@@ -32,8 +32,9 @@ namespace WindowsFormsAppSTP
                     string sch = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(2).First();// Берём количество существующих файлов/нумерация
                     using (StreamWriter fayl = new StreamWriter(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{sch}.txt"))// Создаём файл с именем пользователя в каталоге имени пользователя)
                     {
-                        await fayl.WriteLineAsync(textBox1.Text);//Записываем первый текст бокс в файл
-                        await fayl.WriteAsync(textBox2.Text);//Записываем второй текст бокс в файл
+                        await fayl.WriteLineAsync(textBox1.Text);//Записываем название заметки в файл
+                        await fayl.WriteLineAsync(dateTimePicker1.Text);//Записываем дату заметки в файл
+                        await fayl.WriteAsync(richTextBox1.Text);//Записываем заметку бокс в файл
                     }
                     sch=Convert.ToString(Convert.ToInt32(sch)+1);// Увеличиваем счётчик
                     string password = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(0).First();// Берём пароль
