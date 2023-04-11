@@ -181,5 +181,11 @@ namespace WindowsFormsAppSTP
 
         }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
+            Form2 fr2 = new Form2();
+            fr2.Show();
+            Hide();
+        }
     }
 }
