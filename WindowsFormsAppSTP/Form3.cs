@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
+using System.Threading;
+using FluentFTP;
+
 
 namespace WindowsFormsAppSTP
 {
@@ -57,6 +60,14 @@ namespace WindowsFormsAppSTP
         {
             Form4 fr4 = new Form4(user_name);// Новая форма заметки
             fr4.Show();
+        }
+        private void bunifuButton3_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void bunifuButton4_Click(object sender, EventArgs e)
+        {
         }
     }
 }
