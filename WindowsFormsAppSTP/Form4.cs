@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace WindowsFormsAppSTP
@@ -44,11 +45,23 @@ namespace WindowsFormsAppSTP
                 bunifuTextBox2.Visible = true;
             }
         }
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private async void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string currentPath = Directory.GetCurrentDirectory();// Берём координаты текущей директории
-            string Value = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{comboBox1.SelectedIndex}.txt").Skip(1).First();// Берём текст заметки
-            bunifuTextBox1.Text = Value;// Записываем текст в текст бокс
+            //string Value = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{comboBox1.SelectedIndex}.txt").Skip(2).First();// Берём текст заметки
+            string Value = "";
+            using (StreamReader reader = new StreamReader(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{comboBox1.SelectedIndex}.txt"))
+            {
+                int i=0;
+                string line;
+                while ((line = await reader.ReadLineAsync()) != null)
+                {
+                    if (i > 1)
+                        Value += line + "\n";
+                    else i++;
+                }
+            }
+            richTextBox1.Text = Value;// Записываем текст в текст бокс
         }
         public void ContentSearch() 
         {
