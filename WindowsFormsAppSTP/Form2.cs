@@ -21,9 +21,9 @@ namespace WindowsFormsAppSTP
             textBox1_Leave(null, null); textBox2_Leave(null, null);// Визуальная часть текст боксов
         }
 
-        private void button1_Click(object sender, EventArgs e)// Нажатие на кнопку входа
+        private void bunifuButton1_Click_1(object sender, EventArgs e)
         {
-            if(textBox1.Text!=null)// Проверка присутствия имени пользователя
+            if (textBox1.Text != null)// Проверка присутствия имени пользователя
             {
                 if (!textBox1.Text.Contains(" "))// Проверка содержания имени пользователя на пробел
                 {
@@ -87,6 +87,10 @@ namespace WindowsFormsAppSTP
                 MessageBox.Show("Имя пользователя пустое!");
             }
         }
+        private void bunifuButton1_Click(object sender, EventArgs e)// Нажатие на кнопку входа
+        {
+          
+        }
         private void textBox1_Enter(object sender, EventArgs e) // Визуальная часть при входе в текст бокс имени пользователя
         {
             if (textBox1.Text == "Имя пользователя")
@@ -135,5 +139,7 @@ namespace WindowsFormsAppSTP
         {
 
         }
+
+
     }
 }
