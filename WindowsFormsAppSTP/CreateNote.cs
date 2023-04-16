@@ -15,10 +15,10 @@ using System.Net.Sockets;
 
 namespace WindowsFormsAppSTP
 {
-    public partial class Form5 : Form
+    public partial class CreateNote : Form
     {
         public string user_name;// Имя пользователя
-        public Form5()
+        public CreateNote()
         {
             InitializeComponent();
         }

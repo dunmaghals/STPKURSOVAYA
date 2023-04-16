@@ -13,10 +13,10 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace WindowsFormsAppSTP
 {
-    public partial class Form4 : Form
+    public partial class VievNotes : Form
     {
         public string user_name;
-        public Form4(string user_name_local)
+        public VievNotes(string user_name_local)
         {
             InitializeComponent();
             user_name = user_name_local;

@@ -14,10 +14,10 @@ using System.Net.Sockets;
 
 namespace WindowsFormsAppSTP
 {
-    public partial class Form1 : Form
+    public partial class Registration : Form
     {
         public string user_name;
-        public Form1()
+        public Registration()
         {
             InitializeComponent();
             textBox1_Leave(null, null); textBox2_Leave(null, null); textBox3_Leave(null, null); textBox4_Leave(null, null); // Визуальная составляющая текстбоксов
@@ -183,7 +183,7 @@ namespace WindowsFormsAppSTP
 
         private void label2_Click(object sender, EventArgs e)
         {
-            Form2 fr2 = new Form2();
+            Enter fr2 = new Enter();
             fr2.Show();
             Hide();
         }

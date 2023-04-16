@@ -16,10 +16,10 @@ using FluentFTP;
 
 namespace WindowsFormsAppSTP
 {
-    public partial class Form3 : Form
+    public partial class MainMenu : Form
     {
         public string user_name;// Имя пользователя
-        public Form3(string user_name_local)
+        public MainMenu(string user_name_local)
         {
             InitializeComponent();
             user_name = user_name_local;
@@ -44,7 +44,7 @@ namespace WindowsFormsAppSTP
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            Form5 fr4 = new Form5();// Новая форма заметки
+            CreateNote fr4 = new CreateNote();// Новая форма заметки
             fr4.user_name = user_name;// Переносим данные о имени пользователя в другую форму/форму добавления заметок
             fr4.Show();
         }
@@ -58,7 +58,7 @@ namespace WindowsFormsAppSTP
 
         private void bunifuButton2_Click(object sender, EventArgs e)
         {
-            Form4 fr4 = new Form4(user_name);// Новая форма заметки
+            VievNotes fr4 = new VievNotes(user_name);// Новая форма заметки
             fr4.Show();
         }
         private void bunifuButton3_Click(object sender, EventArgs e)

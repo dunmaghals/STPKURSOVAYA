@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsAppSTP
 {
-    partial class Form5
+    partial class CreateNote
     {
         /// <summary>
         /// Required designer variable.
@@ -36,18 +36,16 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(243, 63);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Location = new System.Drawing.Point(182, 51);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(553, 22);
+            this.textBox1.Size = new System.Drawing.Size(416, 20);
             this.textBox1.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(443, 416);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(332, 338);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 44);
+            this.button1.Size = new System.Drawing.Size(116, 36);
             this.button1.TabIndex = 2;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -55,34 +53,31 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(176, 204);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.richTextBox1.Location = new System.Drawing.Point(132, 166);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(719, 179);
+            this.richTextBox1.Size = new System.Drawing.Size(540, 146);
             this.richTextBox1.TabIndex = 3;
             this.richTextBox1.Text = "";
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(243, 134);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker1.Location = new System.Drawing.Point(182, 109);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(553, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(416, 20);
             this.dateTimePicker1.TabIndex = 4;
             // 
-            // Form5
+            // CreateNote
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(222)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "Form5";
-            this.Text = "Form5";
+            this.Name = "CreateNote";
+            this.Text = "Добавление заметки";
             this.ResumeLayout(false);
             this.PerformLayout();
 
