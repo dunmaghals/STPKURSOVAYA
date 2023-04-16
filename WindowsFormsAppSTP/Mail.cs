@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Mail;
 using System.Net;
+using System.Windows.Forms;
 
 namespace WindowsFormsAppSTP
 {
@@ -37,7 +38,14 @@ namespace WindowsFormsAppSTP
             }
             catch (Exception e)
             {
-                throw new Exception("Mail.Send: " + e.Message);
+                try
+                {
+                    throw new Exception("Mail.Send: " + e.Message);
+                }
+                catch 
+                {
+                    MessageBox.Show(e.Message);
+                }
             }
         }
     }

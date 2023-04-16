@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WindowsFormsAppSTP
 {
@@ -23,7 +26,31 @@ namespace WindowsFormsAppSTP
             {
                 if (!bunifuTextBox1.Text.Contains(" "))
                 {
-                    Mail.SendMessage(bunifuTextBox1.Text, "evgenigaber@gmail.com","STPKursovaya","322");
+                    string currentPath = Directory.GetCurrentDirectory();
+                    if (Directory.Exists(Path.Combine(currentPath, "Users"))) 
+                    {
+                        if (Directory.Exists(Path.Combine(currentPath + "/Users/" + $"{bunifuTextBox1.Text}"))) 
+                        {
+                            if (File.Exists(Path.Combine(currentPath + "/Users" + $"/{bunifuTextBox1.Text}/" + $"/{bunifuTextBox1.Text}.txt")))
+                            {
+                                string mail = File.ReadLines(currentPath + "/Users" + $"/{bunifuTextBox1.Text}/" + $"/{bunifuTextBox1.Text}.txt").Skip(1).First();
+                                string password = File.ReadLines(currentPath + "/Users" + $"/{bunifuTextBox1.Text}/" + $"/{bunifuTextBox1.Text}.txt").First();
+                                Mail.SendMessage(bunifuTextBox1.Text, $"{mail}", $"Ditary password restore", $"Your password is {password}!\nOur team is always ready to help you!\nThanks for using our app)"); 
+                            }
+                            else 
+                            {
+                                MessageBox.Show("Данные пользователя отсутствуют!");
+                            }
+                        }
+                        else 
+                        {
+                            MessageBox.Show("Не создано ни одного пользователя!");
+                        }
+                    }
+                    else 
+                    {
+                        MessageBox.Show("Не создано ни одного пользователя!");
+                    }
                 }
                 else
                 {
