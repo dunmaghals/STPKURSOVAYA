@@ -29,12 +29,12 @@ namespace WindowsFormsAppSTP
                 if (!textBox1.Text.Contains(" "))// Проверка на содержание пробелов в первом текст боксе
                 {
                     string currentPath = Directory.GetCurrentDirectory();// Берём координаты текущей директории
-                    string sch = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(2).First();// Берём количество существующих файлов/нумерация
+                    string sch = Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(2).First());// Берём количество существующих файлов/нумерация
                     using (StreamWriter fayl = new StreamWriter(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{sch}.txt"))// Создаём файл с именем пользователя в каталоге имени пользователя)
                     {
-                        await fayl.WriteLineAsync(textBox1.Text);//Записываем название заметки в файл
-                        await fayl.WriteLineAsync(dateTimePicker1.Text);//Записываем дату заметки в файл
-                        await fayl.WriteAsync(richTextBox1.Text);//Записываем заметку бокс в файл
+                        await fayl.WriteLineAsync(Shifr.EncodeDecrypt(textBox1.Text));//Записываем название заметки в файл
+                        await fayl.WriteLineAsync(Shifr.EncodeDecrypt(dateTimePicker1.Text));//Записываем дату заметки в файл
+                        await fayl.WriteAsync(Shifr.EncodeDecrypt(richTextBox1.Text));//Записываем заметку бокс в файл
                     }
                     sch=Convert.ToString(Convert.ToInt32(sch)+1);// Увеличиваем счётчик
                     string password = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(0).First();// Берём пароль
@@ -43,7 +43,7 @@ namespace WindowsFormsAppSTP
                     {
                         await fayl.WriteLineAsync($"{password}");// Перезаписываем пароль
                         await fayl.WriteLineAsync($"{mail}");// Перезаписываем почту
-                        await fayl.WriteLineAsync($"{sch}");// Вводим колличество заметок
+                        await fayl.WriteLineAsync($"{Shifr.EncodeDecrypt(sch)}");// Вводим колличество заметок
                     }
                     Hide();
                 }

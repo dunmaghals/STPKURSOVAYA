@@ -127,9 +127,12 @@ namespace WindowsFormsAppSTP
                                                 }
                                                 using (StreamWriter fayl = new StreamWriter(currentPath + "/Users" + $"/{textBox1.Text}/" + $"/{textBox1.Text}.txt"))// Создаём файл с именем пользователя в каталоге имени пользователя)
                                                 {
-                                                    await fayl.WriteLineAsync($"{textBox2.Text}");// Вводим пароль
-                                                    await fayl.WriteLineAsync($"{textBox4.Text}");// Вводим почту
-                                                    await fayl.WriteLineAsync($"0");// Вводим колличество заметок
+                                                    string password = Shifr.EncodeDecrypt(textBox2.Text);
+                                                    string mail = Shifr.EncodeDecrypt(textBox4.Text);
+                                                    string sch = Shifr.EncodeDecrypt("0");
+                                                    await fayl.WriteLineAsync($"{password}");// Вводим пароль
+                                                    await fayl.WriteLineAsync($"{mail}");// Вводим почту
+                                                    await fayl.WriteLineAsync($"{sch}");// Вводим колличество заметок
                                                 }
                                                 //using (StreamWriter fayl = new StreamWriter(currentPath + "/Users" + $"/{textBox1.Text}/" + $"/{textBox1.Text}_Data.txt")) { }   
                                                 user_name = textBox1.Text;

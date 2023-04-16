@@ -33,9 +33,10 @@ namespace WindowsFormsAppSTP
                         {
                             if (File.Exists(Path.Combine(currentPath + "/Users" + $"/{bunifuTextBox1.Text}/" + $"/{bunifuTextBox1.Text}.txt")))
                             {
-                                string mail = File.ReadLines(currentPath + "/Users" + $"/{bunifuTextBox1.Text}/" + $"/{bunifuTextBox1.Text}.txt").Skip(1).First();
-                                string password = File.ReadLines(currentPath + "/Users" + $"/{bunifuTextBox1.Text}/" + $"/{bunifuTextBox1.Text}.txt").First();
-                                Mail.SendMessage(bunifuTextBox1.Text, $"{mail}", $"Ditary password restore", $"Your password is {password}!\nOur team is always ready to help you!\nThanks for using our app)"); 
+                                string mail = Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{bunifuTextBox1.Text}/" + $"/{bunifuTextBox1.Text}.txt").Skip(1).First());
+                                string password = Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{bunifuTextBox1.Text}/" + $"/{bunifuTextBox1.Text}.txt").First());
+                                Mail.SendMessage(bunifuTextBox1.Text, $"{mail}", $"Ditary password restore", $"Your password is {password}!\nOur team is always ready to help you!\nThanks for using our app)");
+                                this.Close();
                             }
                             else 
                             {

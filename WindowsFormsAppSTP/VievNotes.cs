@@ -29,12 +29,12 @@ namespace WindowsFormsAppSTP
             {
                 comboBox1.Items.Clear();
                 string currentPath = Directory.GetCurrentDirectory();// Берём координаты текущей директории
-                int sch = Convert.ToInt32(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(2).First());// Берём количество существующих файлов/нумерация
+                int sch = Convert.ToInt32(Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(2).First()));// Берём количество существующих файлов/нумерация
                 for (int i = 0; i < sch; i++)
                 {
                     if (File.Exists(Path.Combine(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt"))) // Если файл с заметкой n существует
                     {
-                        Name = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").First() + " - " + File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").Skip(1).First();// Читаем название заметки
+                        Name = Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").First()) + " - " + Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").Skip(1).First());// Читаем название заметки
                         comboBox1.Items.Add($"{Name}");// Добавляем в комбо бокс
                     }
                     else// Если файл с заметкой не существует
@@ -57,7 +57,7 @@ namespace WindowsFormsAppSTP
                 while ((line = await reader.ReadLineAsync()) != null)
                 {
                     if (i > 1)
-                        Value += line + "\n";
+                        Value += Shifr.EncodeDecrypt(line) + "\n";
                     else i++;
                 }
             }
@@ -67,12 +67,12 @@ namespace WindowsFormsAppSTP
         {
             comboBox1.Items.Clear();
             string currentPath = Directory.GetCurrentDirectory();// Берём координаты текущей директории
-            int sch = Convert.ToInt32(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(2).First());// Берём количество существующих файлов/нумерация
+            int sch = Convert.ToInt32(Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(2).First()));// Берём количество существующих файлов/нумерация
             for (int i = 0; i < sch; i++)
             {
                 if (File.Exists(Path.Combine(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt"))) // Если файл с заметкой n существует
                 {
-                    Name = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").First() + " - " + File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").Skip(1).First();// Читаем название заметки
+                    Name = Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").First()) + " - " + Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").Skip(1).First());// Читаем название заметки
                     if (Name.Contains(bunifuTextBox2.Text)) 
                     {
                     comboBox1.Items.Add($"{Name}");// Добавляем в комбо бокс

@@ -62,7 +62,7 @@ namespace WindowsFormsAppSTP
         {
             Registration fr1 = new Registration();
             fr1.Show();
-            Hide();
+            Close();
         }
 
         private void label3_Click(object sender, EventArgs e) // Нажатие на лейбл восстановления пароля по почте
@@ -90,15 +90,13 @@ namespace WindowsFormsAppSTP
                                     {
                                         using (StreamReader sr = File.OpenText(currentPath + "/Users" + $"/{textBox1.Text}/" + $"/{textBox1.Text}.txt"))// Открытие файла имени пользователя
                                         {
-                                            string password;// пароль
-                                            password = sr.ReadLine();// считываем пароль
+                                            string password = Shifr.EncodeDecrypt(sr.ReadLine());// считываем пароль
                                             if (textBox2.Text == password) // Если поле текст бокс == пароль
                                             {
-
                                                 MessageBox.Show("Вход выполнен!");
                                                 MainMenu fr3 = new MainMenu(textBox1.Text);
                                                 fr3.Show();
-                                                Hide();
+                                                Close();
                                             }
                                         }
                                     }

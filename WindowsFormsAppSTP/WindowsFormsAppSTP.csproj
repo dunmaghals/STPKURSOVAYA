@@ -170,6 +170,7 @@
       <DependentUpon>MailRestore.cs</DependentUpon>
     </Compile>
     <Compile Include="Mail.cs" />
+    <Compile Include="Shifr.cs" />
     <Compile Include="Site.cs" />
     <Compile Include="Registration.cs">
       <SubType>Form</SubType>
