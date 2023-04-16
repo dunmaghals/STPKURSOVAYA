@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bunifu.UI.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -92,6 +93,17 @@ namespace WindowsFormsAppSTP
         private void ComboBox_Leave(object sender, MouseEventArgs e)
         {
             bunifuTextBox2.Visible = false;
+        }
+
+        private void bunifuButton1_Click(object sender, EventArgs e)
+        {
+            if (comboBox1 != null) 
+            {
+                string currentPath = Directory.GetCurrentDirectory(); ;
+                string mail = Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(1).First());
+                string filePath = Path.Combine(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{0}.txt");
+                Mail.SendFile(user_name, $"{mail}", $"Ditary notes request", $"Your notes:\n",filePath);
+            }
         }
     }
 }
