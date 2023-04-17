@@ -68,6 +68,7 @@ namespace WindowsFormsAppSTP
 
         private void bunifuButton4_Click(object sender, EventArgs e)
         {
+            Close();
         }
     }
 }
