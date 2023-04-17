@@ -86,7 +86,7 @@
             this.bunifuTextBox2.IconRight = null;
             this.bunifuTextBox2.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.bunifuTextBox2.Lines = new string[0];
-            this.bunifuTextBox2.Location = new System.Drawing.Point(90, 12);
+            this.bunifuTextBox2.Location = new System.Drawing.Point(82, 12);
             this.bunifuTextBox2.MaxLength = 32767;
             this.bunifuTextBox2.MinimumSize = new System.Drawing.Size(1, 1);
             this.bunifuTextBox2.Modified = false;
@@ -112,7 +112,7 @@
             stateProperties4.ForeColor = System.Drawing.Color.Empty;
             stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.bunifuTextBox2.OnIdleState = stateProperties4;
-            this.bunifuTextBox2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.bunifuTextBox2.Padding = new System.Windows.Forms.Padding(3);
             this.bunifuTextBox2.PasswordChar = '\0';
             this.bunifuTextBox2.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.bunifuTextBox2.PlaceholderText = "Enter text";
@@ -137,7 +137,7 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(132, 97);
+            this.richTextBox1.Location = new System.Drawing.Point(137, 97);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(518, 252);
             this.richTextBox1.TabIndex = 5;
@@ -157,7 +157,7 @@
             this.bunifuButton1.BackColor1 = System.Drawing.Color.DodgerBlue;
             this.bunifuButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuButton1.BackgroundImage")));
             this.bunifuButton1.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.bunifuButton1.ButtonText = "Отправить заметки на почту";
+            this.bunifuButton1.ButtonText = "Отправить заметку на почту";
             this.bunifuButton1.ButtonTextMarginLeft = 0;
             this.bunifuButton1.ColorContrastOnClick = 45;
             this.bunifuButton1.ColorContrastOnHover = 45;
@@ -244,7 +244,7 @@
             this.Controls.Add(this.bunifuTextBox2);
             this.Controls.Add(this.comboBox1);
             this.Name = "VievNotes";
-            this.Text = "Form4";
+            this.Text = "Просмотр заметок";
             this.ResumeLayout(false);
 
         }

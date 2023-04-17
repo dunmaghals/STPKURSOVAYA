@@ -170,6 +170,12 @@
       <DependentUpon>MailRestore.cs</DependentUpon>
     </Compile>
     <Compile Include="Mail.cs" />
+    <Compile Include="NotesToMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NotesToMail.Designer.cs">
+      <DependentUpon>NotesToMail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Shifr.cs" />
     <Compile Include="Site.cs" />
     <Compile Include="Registration.cs">
@@ -206,6 +212,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MailRestore.resx">
       <DependentUpon>MailRestore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NotesToMail.resx">
+      <DependentUpon>NotesToMail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>

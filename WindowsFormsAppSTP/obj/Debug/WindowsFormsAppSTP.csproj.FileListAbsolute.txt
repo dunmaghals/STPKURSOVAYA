@@ -255,3 +255,4 @@ C:\Users\Dgeck\Source\Repos\STPKURSOVAYA\WindowsFormsAppSTP\obj\Debug\WindowsFor
 C:\Users\Dgeck\Source\Repos\STPKURSOVAYA\WindowsFormsAppSTP\obj\Debug\WindowsFormsAppSTP.MainMenu.resources
 C:\Users\Dgeck\Source\Repos\STPKURSOVAYA\WindowsFormsAppSTP\obj\Debug\WindowsFormsAppSTP.VievNotes.resources
 C:\Users\Dgeck\Source\Repos\STPKURSOVAYA\WindowsFormsAppSTP\obj\Debug\WindowsFormsAppSTP.CreateNote.resources
+C:\Users\Dgeck\source\repos\STPKURSOVAYA\WindowsFormsAppSTP\obj\Debug\WindowsFormsAppSTP.NotesToMail.resources

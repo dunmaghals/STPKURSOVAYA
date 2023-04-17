@@ -35,7 +35,7 @@ namespace WindowsFormsAppSTP
                 {
                     if (File.Exists(Path.Combine(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt"))) // Если файл с заметкой n существует
                     {
-                        Name = Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").First()) + " - " + Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").Skip(1).First());// Читаем название заметки
+                        Name = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").First() + " - " + File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").Skip(1).First();// Читаем название заметки
                         comboBox1.Items.Add($"{Name}");// Добавляем в комбо бокс
                     }
                     else// Если файл с заметкой не существует
@@ -58,7 +58,7 @@ namespace WindowsFormsAppSTP
                 while ((line = await reader.ReadLineAsync()) != null)
                 {
                     if (i > 1)
-                        Value += Shifr.EncodeDecrypt(line) + "\n";
+                        Value += line + "\n";
                     else i++;
                 }
             }
@@ -73,7 +73,7 @@ namespace WindowsFormsAppSTP
             {
                 if (File.Exists(Path.Combine(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt"))) // Если файл с заметкой n существует
                 {
-                    Name = Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").First()) + " - " + Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").Skip(1).First());// Читаем название заметки
+                    Name = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").First() + " - " + File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").Skip(1).First();// Читаем название заметки
                     if (Name.Contains(bunifuTextBox2.Text)) 
                     {
                     comboBox1.Items.Add($"{Name}");// Добавляем в комбо бокс
@@ -97,13 +97,8 @@ namespace WindowsFormsAppSTP
 
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
-            if (comboBox1 != null) 
-            {
-                string currentPath = Directory.GetCurrentDirectory(); ;
-                string mail = Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(1).First());
-                string filePath = Path.Combine(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{0}.txt");
-                Mail.SendFile(user_name, $"{mail}", $"Ditary notes request", $"Your notes:\n",filePath);
-            }
+            NotesToMail notes = new NotesToMail(user_name);
+            notes.Show();
         }
     }
 }

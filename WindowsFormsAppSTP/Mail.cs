@@ -34,6 +34,7 @@ namespace WindowsFormsAppSTP
                 mess.Subject = "Отправлено сообщение";
                 mess.Body = "Пользователю " + userName + " отправлено сообщение";
                 client.Send(mess); // отправка себе
+                MessageBox.Show("Отправка прошла успешно!");
                 mess.Dispose();
             }
             catch (Exception e)
@@ -48,7 +49,7 @@ namespace WindowsFormsAppSTP
                 }
             }
         }
-        public static void SendFile(string userName, string adressTo, string messageSubject, string messageText, string file)
+        public static void SendFile(string userName, string adressTo, string messageSubject, string messageText, params string[] file)
         {
             try
             {
@@ -59,7 +60,11 @@ namespace WindowsFormsAppSTP
                 mess.From = new MailAddress(from);
                 mess.Subject = messageSubject; // тема
                 mess.Body = messageText; // текст сообщения
-                mess.Attachments.Add(new Attachment(file));
+                for (int i = 0; i < file.Length; i++)
+                {
+                    if (file[i]!=null)
+                    mess.Attachments.Add(new Attachment(file[i]));
+                }
                 SmtpClient client = new SmtpClient();
                 client.Host = "smtp.mail.ru"; //smtp-сервер отправителя
                 client.Port = 587;
@@ -72,6 +77,7 @@ namespace WindowsFormsAppSTP
                 mess.Subject = "Отправлено сообщение";
                 mess.Body = "Пользователю " + userName + " отправлено сообщение";
                 client.Send(mess); // отправка себе
+                MessageBox.Show("Отправка прошла успешно!");
                 mess.Dispose();
             }
             catch (Exception e)
