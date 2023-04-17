@@ -20,16 +20,20 @@ namespace WindowsFormsAppSTP
             InitializeComponent();
         }
 
+      
+
+    
+
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
-            if (bunifuTextBox1.Text != null) 
+            if (bunifuTextBox1.Text != null)
             {
                 if (!bunifuTextBox1.Text.Contains(" "))
                 {
                     string currentPath = Directory.GetCurrentDirectory();
-                    if (Directory.Exists(Path.Combine(currentPath, "Users"))) 
+                    if (Directory.Exists(Path.Combine(currentPath, "Users")))
                     {
-                        if (Directory.Exists(Path.Combine(currentPath + "/Users/" + $"{bunifuTextBox1.Text}"))) 
+                        if (Directory.Exists(Path.Combine(currentPath + "/Users/" + $"{bunifuTextBox1.Text}")))
                         {
                             if (File.Exists(Path.Combine(currentPath + "/Users" + $"/{bunifuTextBox1.Text}/" + $"/{bunifuTextBox1.Text}.txt")))
                             {
@@ -38,17 +42,17 @@ namespace WindowsFormsAppSTP
                                 Mail.SendMessage(bunifuTextBox1.Text, $"{mail}", $"Ditary password restore", $"Your password is {password}!\nOur team is always ready to help you!\nThanks for using our app)");
                                 this.Close();
                             }
-                            else 
+                            else
                             {
                                 MessageBox.Show("Данные пользователя отсутствуют!");
                             }
                         }
-                        else 
+                        else
                         {
                             MessageBox.Show("Не создано ни одного пользователя!");
                         }
                     }
-                    else 
+                    else
                     {
                         MessageBox.Show("Не создано ни одного пользователя!");
                     }
@@ -58,7 +62,7 @@ namespace WindowsFormsAppSTP
                     MessageBox.Show("Имя пользователя не должно содержать пробелы!");
                 }
             }
-            else 
+            else
             {
                 MessageBox.Show("Имя пользователя не должно быть пустым!");
             }
