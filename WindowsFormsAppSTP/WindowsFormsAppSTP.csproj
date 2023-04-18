@@ -170,11 +170,29 @@
       <DependentUpon>MailRestore.cs</DependentUpon>
     </Compile>
     <Compile Include="Mail.cs" />
+    <Compile Include="NotesToFolder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NotesToFolder.Designer.cs">
+      <DependentUpon>NotesToFolder.cs</DependentUpon>
+    </Compile>
     <Compile Include="NotesToMail.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="NotesToMail.Designer.cs">
       <DependentUpon>NotesToMail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PasswordChange.Designer.cs">
+      <DependentUpon>PasswordChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
     <Compile Include="Shifr.cs" />
     <Compile Include="Site.cs" />
@@ -213,8 +231,14 @@
     <EmbeddedResource Include="MailRestore.resx">
       <DependentUpon>MailRestore.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NotesToFolder.resx">
+      <DependentUpon>NotesToFolder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NotesToMail.resx">
       <DependentUpon>NotesToMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PasswordChange.resx">
+      <DependentUpon>PasswordChange.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>
@@ -224,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VievNotes.resx">
       <DependentUpon>VievNotes.cs</DependentUpon>

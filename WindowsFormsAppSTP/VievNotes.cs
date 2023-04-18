@@ -97,8 +97,14 @@ namespace WindowsFormsAppSTP
 
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
-            NotesToMail notes = new NotesToMail(user_name);
-            notes.Show();
+            NotesToMail notes_to_mail = new NotesToMail(user_name);
+            notes_to_mail.Show();
+        }
+
+        private void bunifuButton2_Click(object sender, EventArgs e)
+        {
+            NotesToFolder notes_to_folder = new NotesToFolder(user_name);
+            notes_to_folder.Show();
         }
     }
 }

@@ -63,7 +63,8 @@ namespace WindowsFormsAppSTP
         }
         private void bunifuButton3_Click(object sender, EventArgs e)
         {
-            
+            Settings settings = new Settings(user_name);
+            settings.Show();
         }
 
         private void bunifuButton4_Click(object sender, EventArgs e)
