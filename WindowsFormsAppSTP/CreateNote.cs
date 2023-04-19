@@ -24,36 +24,69 @@ namespace WindowsFormsAppSTP
         }
         private async void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1 != null)// Проверка на пустоту первого текст бокса
+            if (bunifuTextBox1 != null)// Проверка на пустоту первого текст бокса
             {
-                if (!textBox1.Text.Contains(" "))// Проверка на содержание пробелов в первом текст боксе
-                {
                     string currentPath = Directory.GetCurrentDirectory();// Берём координаты текущей директории
-                    string sch = Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(2).First());// Берём количество существующих файлов/нумерация
-                    using (StreamWriter fayl = new StreamWriter(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{sch}.txt"))// Создаём файл с именем пользователя в каталоге имени пользователя)
+                    Sound.Button_Click_Sound();
+                    try
                     {
-                        await fayl.WriteLineAsync(textBox1.Text);//Записываем название заметки в файл
-                        await fayl.WriteLineAsync(dateTimePicker1.Text);//Записываем дату заметки в файл
-                        await fayl.WriteAsync(richTextBox1.Text);//Записываем заметку бокс в файл
+                        string sch = Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(2).First());// Берём количество существующих файлов/нумерация
+                        bool check = false;
+                        for(int i = 0; i < Convert.ToInt32(sch); i++) 
+                        { 
+                            if(File.Exists(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt")) 
+                            { 
+
+                            }
+                            else 
+                            {
+                                check = true;
+                                using (StreamWriter fayl = new StreamWriter(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt"))// Создаём файл с именем пользователя в каталоге имени пользователя)
+                                {
+                                    await fayl.WriteLineAsync(bunifuTextBox1.Text);//Записываем название заметки в файл
+                                    await fayl.WriteLineAsync(dateTimePicker1.Text);//Записываем дату заметки в файл
+                                    await fayl.WriteAsync(richTextBox1.Text);//Записываем заметку бокс в файл
+                                }
+                                break;
+                            }
+                        }
+                        if (check == false)
+                        {
+                            using (StreamWriter fayl = new StreamWriter(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{sch}.txt"))// Создаём файл с именем пользователя в каталоге имени пользователя)
+                            {
+                                await fayl.WriteLineAsync(bunifuTextBox1.Text);//Записываем название заметки в файл
+                                await fayl.WriteLineAsync(dateTimePicker1.Text);//Записываем дату заметки в файл
+                                await fayl.WriteAsync(richTextBox1.Text);//Записываем заметку бокс в файл
+                            }
+                            sch = Convert.ToString(Convert.ToInt32(sch) + 1);// Увеличиваем счётчик
+                            string password = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(0).First();// Берём пароль
+                            string mail = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(1).First();// Берём почту
+                            using (StreamWriter fayl = new StreamWriter(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt"))// Создаём файл с именем пользователя в каталоге имени пользователя)
+                            {
+                                await fayl.WriteLineAsync($"{password}");// Перезаписываем пароль
+                                await fayl.WriteLineAsync($"{mail}");// Перезаписываем почту
+                                await fayl.WriteLineAsync($"{Shifr.EncodeDecrypt(sch)}");// Вводим колличество заметок
+                            }
+                            Hide();
+                        }
+                        else { Hide(); }
                     }
-                    sch=Convert.ToString(Convert.ToInt32(sch)+1);// Увеличиваем счётчик
-                    string password = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(0).First();// Берём пароль
-                    string mail = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(1).First();// Берём почту
-                    using (StreamWriter fayl = new StreamWriter(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt"))// Создаём файл с именем пользователя в каталоге имени пользователя)
+                    catch (Exception excep)
                     {
-                        await fayl.WriteLineAsync($"{password}");// Перезаписываем пароль
-                        await fayl.WriteLineAsync($"{mail}");// Перезаписываем почту
-                        await fayl.WriteLineAsync($"{Shifr.EncodeDecrypt(sch)}");// Вводим колличество заметок
+                    Sound.Button_Click_Mistake_Sound();
+                    try
+                        {
+                            throw new Exception(excep.Message);
+                        }
+                        catch
+                        {
+                            MessageBox.Show(excep.Message);
+                        }
                     }
-                    Hide();
                 }
-                else// Если содержит пробел
-                {
-                    MessageBox.Show("Содержание пробелов не допустимо!");
-                }
-            }
             else// Если пустое
             {
+                Sound.Button_Click_Mistake_Sound();
                 MessageBox.Show("Пустым поле имени быть не должно!");
             }
         }

@@ -12,6 +12,9 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using FluentFTP;
+using Bunifu.UI.WinForms;
+using Timer = System.Windows.Forms.Timer;
+
 
 
 namespace WindowsFormsAppSTP
@@ -19,10 +22,63 @@ namespace WindowsFormsAppSTP
     public partial class MainMenu : Form
     {
         public string user_name;// Имя пользователя
+        WMPLib.WindowsMediaPlayer wplayer;
+        Timer tmr = new Timer();
+        int sch=1;
         public MainMenu(string user_name_local)
         {
             InitializeComponent();
+            Inet.StartServ();
             user_name = user_name_local;
+            try 
+            {
+                string currentPath = Directory.GetCurrentDirectory();// Берём координаты текущей директории
+                Sound.volume = Convert.ToInt32(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_sound.txt").First());
+            }
+            catch
+            {
+            }
+            tmr.Interval = 10;
+            tmr.Stop();
+            tmr.Tick += new EventHandler(tmr_Tick);
+            wplayer = new WMPLib.WindowsMediaPlayer();
+            wplayer.URL = "Back_Music_1.mp3";
+            wplayer.PlayStateChange += new WMPLib._WMPOCXEvents_PlayStateChangeEventHandler(wplayer_PlayStateChange);
+            wplayer.controls.play();
+        }
+        void wplayer_PlayStateChange(int NewState)
+        {
+            if (NewState == (int)WMPLib.WMPPlayState.wmppsMediaEnded)
+            {
+                switch (sch) 
+                {
+                    case 0:
+                        wplayer.URL = "Back_Music_1.mp3";
+                        sch++;
+                        tmr.Start();
+                        break;
+                    case 1:
+                        wplayer.URL = "Back_Music_2.mp3";
+                        sch++;
+                        tmr.Start();
+                        break;
+                    case 2:
+                        wplayer.URL = "Back_Music_3.mp3";
+                        sch++;
+                        tmr.Start();
+                        break;
+                    case 3:
+                        wplayer.URL = "Back_Music_4.mp3";
+                        sch = 0;
+                        tmr.Start();
+                        break;
+                }
+            }
+        }
+        void tmr_Tick(object sender, EventArgs e)
+        {
+            tmr.Stop();
+            wplayer.controls.play();
         }
         public void ComboBox_Load(object sender, EventArgs e)
         {
@@ -44,6 +100,7 @@ namespace WindowsFormsAppSTP
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            Sound.Button_Click_Sound();
             CreateNote fr4 = new CreateNote();// Новая форма заметки
             fr4.user_name = user_name;// Переносим данные о имени пользователя в другую форму/форму добавления заметок
             fr4.Show();
@@ -58,16 +115,62 @@ namespace WindowsFormsAppSTP
 
         private void bunifuButton2_Click(object sender, EventArgs e)
         {
+            Sound.Button_Click_Sound();
             VievNotes fr4 = new VievNotes(user_name);// Новая форма заметки
             fr4.Show();
         }
         private void bunifuButton3_Click(object sender, EventArgs e)
         {
-            
+            Sound.Button_Click_Sound();
+            Settings settings = new Settings(user_name);
+            settings.Show();
         }
 
-        private void bunifuButton4_Click(object sender, EventArgs e)
+        private async void bunifuButton4_Click(object sender, EventArgs e)
         {
+            Sound.Button_Click_Sound();
+            try 
+            {
+                string currentPath = Directory.GetCurrentDirectory();// Берём выбранный путь приложения
+                using (StreamWriter fayl = new StreamWriter(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_sound.txt"))// Создаём файл с именем пользователя в каталоге имени пользователя)
+                {
+                    await fayl.WriteLineAsync($"{Sound.volume}");// Вводим пароль
+                }
+            }
+            catch (Exception excep)
+            {
+                try
+                {
+                    throw new Exception(excep.Message);
+                }
+                catch
+                {
+                    MessageBox.Show(excep.Message);
+                }
+            }
+            Inet.StopServ();
+            Application.Exit();
+        }
+        private void OnFormClosed(object sender, FormClosedEventArgs e)
+        {
+            Inet.StopServ();
+            Application.Exit();
+        }
+
+        private void OnFormClosed(object sender, FormClosingEventArgs e)
+        {
+            Inet.StopServ();
+            Application.Exit();
+        }
+
+        private void Music_timer_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuPictureBox1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://localhost:5000/");
         }
     }
 }

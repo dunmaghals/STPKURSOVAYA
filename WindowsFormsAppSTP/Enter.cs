@@ -18,46 +18,7 @@ namespace WindowsFormsAppSTP
         public Enter()
         {
             InitializeComponent();
-            textBox1_Leave(null, null); textBox2_Leave(null, null);// Визуальная часть текст боксов
         }
-
-        private void textBox1_Enter(object sender, EventArgs e) // Визуальная часть при входе в текст бокс имени пользователя
-        {
-            if (textBox1.Text == "Имя пользователя")
-            {
-                textBox1.Clear();
-                textBox1.ForeColor = Color.Black;
-            }
-        }
-
-        private void textBox1_Leave(object sender, EventArgs e) // Визуальная часть при выходе из текст бокса имени пользователя
-        {
-            if (string.IsNullOrWhiteSpace(textBox1.Text))
-            {
-                textBox1.Text = "Имя пользователя";
-                textBox1.ForeColor = Color.Gray;
-            }
-        }
-        private void textBox2_Enter(object sender, EventArgs e) // Визуальная часть при входе в текст бокс пароля
-        {
-            if (textBox2.Text == "Пароль")
-            {
-                textBox2.Clear();
-                textBox2.ForeColor = Color.Black;
-                textBox2.UseSystemPasswordChar = true;
-            }
-        }
-
-        private void textBox2_Leave(object sender, EventArgs e) // Визуальная часть при выходе из текст бокса пароля
-        {
-            if (string.IsNullOrWhiteSpace(textBox2.Text))
-            {
-                textBox2.Text = "Пароль";
-                textBox2.ForeColor = Color.Gray;
-                textBox2.UseSystemPasswordChar = false;
-            }
-        }
-
         private void label2_Click(object sender, EventArgs e) // Нажатие на лейбл регистрации
         {
             Registration fr1 = new Registration();
@@ -73,67 +34,97 @@ namespace WindowsFormsAppSTP
 
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != null)// Проверка присутствия имени пользователя
+            if (bunifuTextBox1.Text != null)// Проверка присутствия имени пользователя
             {
-                if (!textBox1.Text.Contains(" "))// Проверка содержания имени пользователя на пробел
+                if (!bunifuTextBox1.Text.Contains(" "))// Проверка содержания имени пользователя на пробел
                 {
-                    if (textBox2.Text != null)// Проверка присутствия пароля
+                    if (bunifuTextBox2.Text != null)// Проверка присутствия пароля
                     {
-                        if (!textBox2.Text.Contains(" "))// Проверка пароля на содержание пробелов
+                        if (!bunifuTextBox2.Text.Contains(" "))// Проверка пароля на содержание пробелов
                         {
                             string currentPath = Directory.GetCurrentDirectory();// Текущая директория программы
                             if (Directory.Exists(Path.Combine(currentPath, "Users")))// Проверка существования директории user
                             {
-                                if (Directory.Exists(Path.Combine(currentPath + "/Users/" + $"{textBox1.Text}")))// Проверка существования директории имя пользователя
+                                if (Directory.Exists(Path.Combine(currentPath + "/Users/" + $"{bunifuTextBox1.Text}")))// Проверка существования директории имя пользователя
                                 {
-                                    if (File.Exists(Path.Combine(currentPath + "/Users" + $"/{textBox1.Text}/" + $"/{textBox1.Text}.txt")))// Проверка существования директории имя пользователя
+                                    if (File.Exists(Path.Combine(currentPath + "/Users" + $"/{bunifuTextBox1.Text}/" + $"/{bunifuTextBox1.Text}.txt")))// Проверка существования директории имя пользователя
                                     {
-                                        using (StreamReader sr = File.OpenText(currentPath + "/Users" + $"/{textBox1.Text}/" + $"/{textBox1.Text}.txt"))// Открытие файла имени пользователя
+                                        using (StreamReader sr = File.OpenText(currentPath + "/Users" + $"/{bunifuTextBox1.Text}/" + $"/{bunifuTextBox1.Text}.txt"))// Открытие файла имени пользователя
                                         {
                                             string password = Shifr.EncodeDecrypt(sr.ReadLine());// считываем пароль
-                                            if (textBox2.Text == password) // Если поле текст бокс == пароль
+                                            if (bunifuTextBox2.Text == password) // Если поле текст бокс == пароль
                                             {
+                                                Sound.Button_Click_Sound();
                                                 MessageBox.Show("Вход выполнен!");
-                                                MainMenu fr3 = new MainMenu(textBox1.Text);
+                                                MainMenu fr3 = new MainMenu(bunifuTextBox1.Text);
                                                 fr3.Show();
                                                 Close();
+                                            }
+                                            else 
+                                            {
+                                                Sound.Button_Click_Mistake_Sound();
+                                                MessageBox.Show("Пароли не совпадают!");
                                             }
                                         }
                                     }
                                     else // Если файл с именем пользователя отсутствует
                                     {
-
+                                        Sound.Button_Click_Mistake_Sound();
+                                        MessageBox.Show("Данный пользователь отсутствует!");
                                     }
                                 }
                                 else // Если нет директории с именем пользователя
                                 {
-
+                                    Sound.Button_Click_Mistake_Sound();
+                                    MessageBox.Show("Данный пользователь отсутствует!");
                                 }
                             }
                             else // Если нет директории пользователей
                             {
-
+                                Sound.Button_Click_Mistake_Sound();
+                                MessageBox.Show("Данный пользователь отсутствует!");
                             }
                         }
                         else // Пароль содержит пробелы
                         {
+                            Sound.Button_Click_Mistake_Sound();
                             MessageBox.Show("Пароль содержит пробелы!");
                         }
                     }
                     else // Пароль пустой
                     {
+                        Sound.Button_Click_Mistake_Sound();
                         MessageBox.Show("Пароль пустой!");
                     }
                 }
                 else // Имя содержит пробелы
                 {
+                    Sound.Button_Click_Mistake_Sound();
                     MessageBox.Show("Имя пользователя содержит пробелы!");
                 }
             }
             else // Имя пользователя пустое
             {
+                Sound.Button_Click_Mistake_Sound();
                 MessageBox.Show("Имя пользователя пустое!");
             }
+        }
+
+        private void bunifuTextBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (bunifuTextBox2.Text == "")
+            {
+                bunifuTextBox2.UseSystemPasswordChar = false;
+            }
+            else 
+            {
+                bunifuTextBox2.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void bunifuPictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

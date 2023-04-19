@@ -30,58 +30,124 @@ namespace WindowsFormsAppSTP
             {
                 comboBox1.Items.Clear();
                 string currentPath = Directory.GetCurrentDirectory();// Берём координаты текущей директории
-                int sch = Convert.ToInt32(Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(2).First()));// Берём количество существующих файлов/нумерация
-                for (int i = 0; i < sch; i++)
+                try
                 {
-                    if (File.Exists(Path.Combine(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt"))) // Если файл с заметкой n существует
+                    int sch = Convert.ToInt32(Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(2).First()));// Берём количество существующих файлов/нумерация
+                    for (int i = 0; i < sch; i++)
                     {
-                        Name = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").First() + " - " + File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").Skip(1).First();// Читаем название заметки
-                        comboBox1.Items.Add($"{Name}");// Добавляем в комбо бокс
-                    }
-                    else// Если файл с заметкой не существует
-                    {
+                        if (File.Exists(Path.Combine(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt"))) // Если файл с заметкой n существует
+                        {
+                            Name = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").First() + " - " + File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").Skip(1).First();// Читаем название заметки
+                            comboBox1.Items.Add($"{Name}");// Добавляем в комбо бокс
+                        }
+                        else// Если файл с заметкой не существует
+                        {
 
+                        }
+                    }
+                    bunifuTextBox2.Visible = true;
+                }
+                catch (Exception excep)
+                {
+                    try
+                    {
+                        throw new Exception(excep.Message);
+                    }
+                    catch
+                    {
+                        MessageBox.Show(excep.Message);
                     }
                 }
-                bunifuTextBox2.Visible = true;
             }
         }
         private async void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string currentPath = Directory.GetCurrentDirectory();// Берём координаты текущей директории
-            //string Value = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{comboBox1.SelectedIndex}.txt").Skip(2).First();// Берём текст заметки
             string Value = "";
-            using (StreamReader reader = new StreamReader(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{comboBox1.SelectedIndex}.txt"))
+            try
             {
-                int i=0;
-                string line;
-                while ((line = await reader.ReadLineAsync()) != null)
+                int sch = Convert.ToInt32(Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(2).First()));
+                for (int i = 0; i <sch; i++) 
                 {
-                    if (i > 1)
-                        Value += line + "\n";
-                    else i++;
+                    if (File.Exists(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt")) 
+                    { 
+                        if((File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").First() + " - " + File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").Skip(1).First()) == comboBox1.Text) 
+                        {
+                            using (StreamReader reader = new StreamReader(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt"))
+                            {
+                                int j = 0;
+                                string line;
+                                while ((line = await reader.ReadLineAsync()) != null)
+                                {
+                                    if (j > 1)
+                                        Value += line + "\n";
+                                    else j++;
+                                }
+                            }
+                            richTextBox1.Text = Value;// Записываем текст в текст бокс
+                            break;
+                        }
+                    }
                 }
             }
-            richTextBox1.Text = Value;// Записываем текст в текст бокс
+            catch (Exception excep)
+            {
+                try
+                {
+                    throw new Exception(excep.Message);
+                }
+                catch
+                {
+                    MessageBox.Show(excep.Message);
+                }
+            }
         }
         public void ContentSearch() 
         {
             comboBox1.Items.Clear();
             string currentPath = Directory.GetCurrentDirectory();// Берём координаты текущей директории
-            int sch = Convert.ToInt32(Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(2).First()));// Берём количество существующих файлов/нумерация
-            for (int i = 0; i < sch; i++)
+            try
             {
-                if (File.Exists(Path.Combine(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt"))) // Если файл с заметкой n существует
+                int sch = Convert.ToInt32(Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(2).First()));// Берём количество существующих файлов/нумерация
+                for (int i = 0; i < sch; i++)
                 {
-                    Name = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").First() + " - " + File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").Skip(1).First();// Читаем название заметки
-                    if (Name.Contains(bunifuTextBox2.Text)) 
+                    try
                     {
-                    comboBox1.Items.Add($"{Name}");// Добавляем в комбо бокс
+                        if (File.Exists(Path.Combine(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt"))) // Если файл с заметкой n существует
+                        {
+                            Name = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").First() + " - " + File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").Skip(1).First();// Читаем название заметки
+                            if (Name.Contains(bunifuTextBox2.Text))
+                            {
+                                comboBox1.Items.Add($"{Name}");// Добавляем в комбо бокс
+                            }
+                        }
+                        else// Если файл с заметкой не существует
+                        {
+
+                        }
+                    }
+                    catch (Exception excep)
+                    {
+                        try
+                        {
+                            throw new Exception(excep.Message);
+                        }
+                        catch
+                        {
+                            MessageBox.Show(excep.Message);
+                        }
                     }
                 }
-                else// Если файл с заметкой не существует
+            }
+            catch (Exception excep)
+            {
+                try
                 {
-
+                    throw new Exception(excep.Message);
+                }
+                catch
+                {
+                    MessageBox.Show(excep.Message);
                 }
             }
         }
@@ -97,8 +163,16 @@ namespace WindowsFormsAppSTP
 
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
-            NotesToMail notes = new NotesToMail(user_name);
-            notes.Show();
+            Sound.Button_Click_Sound();
+            NotesToMail notes_to_mail = new NotesToMail(user_name);
+            notes_to_mail.Show();
+        }
+
+        private void bunifuButton2_Click(object sender, EventArgs e)
+        {
+            Sound.Button_Click_Sound();
+            NotesToFolder notes_to_folder = new NotesToFolder(user_name);
+            notes_to_folder.Show();
         }
     }
 }

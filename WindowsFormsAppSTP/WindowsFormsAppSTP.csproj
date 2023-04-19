@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxInterop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WMPLib.1.0.0\lib\AxInterop.WMPLib.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.Licensing, Version=3.2.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b" />
     <Reference Include="Bunifu.UI.WinForms.BunifuButton">
       <HintPath>..\..\STPKURSOVAYA4\BunifuCrack-main\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
@@ -78,6 +81,10 @@
     </Reference>
     <Reference Include="FubarDev.FtpServer.FileSystem.DotNet, Version=3.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FubarDev.FtpServer.FileSystem.DotNet.3.1.2\lib\net461\FubarDev.FtpServer.FileSystem.DotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WMPLib.1.0.0\lib\Interop.WMPLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.AspNetCore.Http.Features, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNetCore.Http.Features.2.0.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Features.dll</HintPath>
@@ -163,6 +170,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MailChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MailChange.Designer.cs">
+      <DependentUpon>MailChange.cs</DependentUpon>
+    </Compile>
     <Compile Include="MailRestore.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,14 +183,32 @@
       <DependentUpon>MailRestore.cs</DependentUpon>
     </Compile>
     <Compile Include="Mail.cs" />
+    <Compile Include="NotesToFolder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NotesToFolder.Designer.cs">
+      <DependentUpon>NotesToFolder.cs</DependentUpon>
+    </Compile>
     <Compile Include="NotesToMail.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="NotesToMail.Designer.cs">
       <DependentUpon>NotesToMail.cs</DependentUpon>
     </Compile>
+    <Compile Include="PasswordChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PasswordChange.Designer.cs">
+      <DependentUpon>PasswordChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Shifr.cs" />
-    <Compile Include="Site.cs" />
+    <Compile Include="StartSite.cs" />
     <Compile Include="Registration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +227,19 @@
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sound.cs" />
+    <Compile Include="SoundChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SoundChange.Designer.cs">
+      <DependentUpon>SoundChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToDevelopers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToDevelopers.Designer.cs">
+      <DependentUpon>ToDevelopers.cs</DependentUpon>
+    </Compile>
     <Compile Include="VievNotes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,11 +254,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MailChange.resx">
+      <DependentUpon>MailChange.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MailRestore.resx">
       <DependentUpon>MailRestore.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NotesToFolder.resx">
+      <DependentUpon>NotesToFolder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NotesToMail.resx">
       <DependentUpon>NotesToMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PasswordChange.resx">
+      <DependentUpon>PasswordChange.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>
@@ -224,6 +277,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SoundChange.resx">
+      <DependentUpon>SoundChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToDevelopers.resx">
+      <DependentUpon>ToDevelopers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VievNotes.resx">
       <DependentUpon>VievNotes.cs</DependentUpon>
