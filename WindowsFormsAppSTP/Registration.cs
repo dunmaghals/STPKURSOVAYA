@@ -123,13 +123,7 @@ namespace WindowsFormsAppSTP
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-            Enter fr2 = new Enter();
-            fr2.Show();
-            Hide();
-        }
-
+       
         private void bunifuTextBox2_TextChanged(object sender, EventArgs e)
         {
             if (bunifuTextBox2.Text == "")
@@ -157,6 +151,13 @@ namespace WindowsFormsAppSTP
         private void bunifuPictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void bunifuButton2_Click(object sender, EventArgs e)
+        {
+            Enter fr2 = new Enter();
+            fr2.Show();
+            Hide();
         }
     }
 }

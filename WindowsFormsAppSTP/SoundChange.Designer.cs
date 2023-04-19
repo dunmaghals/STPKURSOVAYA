@@ -54,10 +54,11 @@
             this.bunifuHSlider1.DurationBeforeShrink = 2000;
             this.bunifuHSlider1.ElapsedColor = System.Drawing.Color.DodgerBlue;
             this.bunifuHSlider1.LargeChange = 10;
-            this.bunifuHSlider1.Location = new System.Drawing.Point(35, 55);
+            this.bunifuHSlider1.Location = new System.Drawing.Point(47, 68);
+            this.bunifuHSlider1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.bunifuHSlider1.Maximum = 100;
             this.bunifuHSlider1.Minimum = 0;
-            this.bunifuHSlider1.MinimumSize = new System.Drawing.Size(0, 31);
+            this.bunifuHSlider1.MinimumSize = new System.Drawing.Size(0, 38);
             this.bunifuHSlider1.MinimumThumbLength = 18;
             this.bunifuHSlider1.Name = "bunifuHSlider1";
             this.bunifuHSlider1.OnDisable.ScrollBarBorderColor = System.Drawing.Color.Silver;
@@ -66,7 +67,7 @@
             this.bunifuHSlider1.ScrollBarBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             this.bunifuHSlider1.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             this.bunifuHSlider1.ShrinkSizeLimit = 3;
-            this.bunifuHSlider1.Size = new System.Drawing.Size(335, 42);
+            this.bunifuHSlider1.Size = new System.Drawing.Size(447, 52);
             this.bunifuHSlider1.SliderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             this.bunifuHSlider1.SliderStyle = Bunifu.UI.WinForms.BunifuHSlider.SliderStyles.Thin;
             this.bunifuHSlider1.SliderThumbStyle = Utilities.BunifuSlider.BunifuHScrollBar.SliderThumbStyles.Circular;
@@ -74,7 +75,7 @@
             this.bunifuHSlider1.TabIndex = 0;
             this.bunifuHSlider1.ThumbColor = System.Drawing.Color.DodgerBlue;
             this.bunifuHSlider1.ThumbFillColor = System.Drawing.SystemColors.Control;
-            this.bunifuHSlider1.ThumbLength = 33;
+            this.bunifuHSlider1.ThumbLength = 44;
             this.bunifuHSlider1.ThumbMargin = 1;
             this.bunifuHSlider1.ThumbSize = Bunifu.UI.WinForms.BunifuHSlider.ThumbSizes.Medium;
             this.bunifuHSlider1.ThumbStyle = Bunifu.UI.WinForms.BunifuHSlider.ThumbStyles.Outline;
@@ -88,10 +89,11 @@
             this.bunifuLabel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuLabel1.Location = new System.Drawing.Point(149, 34);
+            this.bunifuLabel1.Location = new System.Drawing.Point(199, 42);
+            this.bunifuLabel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bunifuLabel1.Name = "bunifuLabel1";
             this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel1.Size = new System.Drawing.Size(108, 15);
+            this.bunifuLabel1.Size = new System.Drawing.Size(137, 20);
             this.bunifuLabel1.TabIndex = 1;
             this.bunifuLabel1.Text = "Уровень громкости";
             this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -99,11 +101,14 @@
             // 
             // SoundChange
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(388, 112);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(222)))), ((int)(((byte)(255)))));
+            this.ClientSize = new System.Drawing.Size(517, 138);
             this.Controls.Add(this.bunifuLabel1);
             this.Controls.Add(this.bunifuHSlider1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SoundChange";
             this.Text = "SoundChange";
             this.ResumeLayout(false);

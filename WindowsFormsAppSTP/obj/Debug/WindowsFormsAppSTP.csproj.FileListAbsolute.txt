@@ -595,3 +595,7 @@ C:\Users\User\source\repos\STPKURSOVAYA102\WindowsFormsAppSTP\obj\Debug\WindowsF
 C:\Users\User\source\repos\STPKURSOVAYA102\WindowsFormsAppSTP\obj\Debug\WindowsFormsAppSTP.Settings.resources
 C:\Users\User\source\repos\STPKURSOVAYA102\WindowsFormsAppSTP\obj\Debug\WindowsFormsAppSTP.SoundChange.resources
 C:\Users\User\source\repos\STPKURSOVAYA102\WindowsFormsAppSTP\obj\Debug\WindowsFormsAppSTP.ToDevelopers.resources
+C:\Users\User\source\repos\STPKURSOVAYA102\WindowsFormsAppSTP\bin\Debug\Bunifu.UI.WinForms.BunifuGradientPanel.dll
+C:\Users\User\source\repos\STPKURSOVAYA102\WindowsFormsAppSTP\bin\Debug\Bunifu.UI.WinForms.BunifuRating.dll
+C:\Users\User\source\repos\STPKURSOVAYA102\WindowsFormsAppSTP\bin\Debug\Bunifu.UI.WinForms.BunifuSnackbar.dll
+C:\Users\User\source\repos\STPKURSOVAYA102\WindowsFormsAppSTP\bin\Debug\Bunifu.UI.WinForms.BunifuToggleSwitch.dll

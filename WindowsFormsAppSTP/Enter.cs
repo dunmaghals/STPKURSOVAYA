@@ -19,18 +19,6 @@ namespace WindowsFormsAppSTP
         {
             InitializeComponent();
         }
-        private void label2_Click(object sender, EventArgs e) // Нажатие на лейбл регистрации
-        {
-            Registration fr1 = new Registration();
-            fr1.Show();
-            Close();
-        }
-
-        private void label3_Click(object sender, EventArgs e) // Нажатие на лейбл восстановления пароля по почте
-        {
-            MailRestore mailRestore = new MailRestore();
-            mailRestore.Show();
-        }
 
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
@@ -125,6 +113,19 @@ namespace WindowsFormsAppSTP
         private void bunifuPictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void bunifuButton2_Click(object sender, EventArgs e)
+        {
+            Registration fr1 = new Registration();
+            fr1.Show();
+            Close();
+        }
+
+        private void bunifuButton3_Click(object sender, EventArgs e)
+        {
+            MailRestore mailRestore = new MailRestore();
+            mailRestore.Show();
         }
     }
 }
