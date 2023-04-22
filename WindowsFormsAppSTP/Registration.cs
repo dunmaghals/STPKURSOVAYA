@@ -51,7 +51,7 @@ namespace WindowsFormsAppSTP
                                                 {
                                                     Directory.CreateDirectory(Path.Combine(currentPath + "/Users", $"{bunifuTextBox1.Text}"));
                                                 }
-                                                using (StreamWriter fayl = new StreamWriter(currentPath + "/Users" + $"/{bunifuTextBox1.Text}/" + $"/{bunifuTextBox1.Text}.txt"))// Создаём файл с именем пользователя в каталоге имени пользователя)
+                                                using (StreamWriter fayl = new StreamWriter(currentPath + "/Users" + $"/{bunifuTextBox1.Text}/" + $"/{bunifuTextBox1.Text}.rtf"))// Создаём файл с именем пользователя в каталоге имени пользователя)
                                                 {
                                                     string password = Shifr.EncodeDecrypt(bunifuTextBox2.Text);
                                                     string mail = Shifr.EncodeDecrypt(bunifuTextBox4.Text);

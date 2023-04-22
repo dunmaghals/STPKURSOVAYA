@@ -33,9 +33,9 @@ namespace WindowsFormsAppSTP
                         try
                         {
                             string currentPath = Directory.GetCurrentDirectory();// Текущая директория программы
-                            string mail = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(1).First();
-                            string sch = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(2).First();
-                            using (StreamWriter fayl = new StreamWriter(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt"))// Создаём файл с именем пользователя в каталоге имени пользователя)
+                            string mail = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.rtf").Skip(1).First();
+                            string sch = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.rtf").Skip(2).First();
+                            using (StreamWriter fayl = new StreamWriter(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.rtf"))// Создаём файл с именем пользователя в каталоге имени пользователя)
                             {
                                 string password = Shifr.EncodeDecrypt(bunifuTextBox1.Text);
                                 await fayl.WriteLineAsync($"{password}");// Вводим пароль

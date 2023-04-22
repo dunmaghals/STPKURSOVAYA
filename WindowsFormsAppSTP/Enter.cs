@@ -36,9 +36,9 @@ namespace WindowsFormsAppSTP
                             {
                                 if (Directory.Exists(Path.Combine(currentPath + "/Users/" + $"{bunifuTextBox1.Text}")))// Проверка существования директории имя пользователя
                                 {
-                                    if (File.Exists(Path.Combine(currentPath + "/Users" + $"/{bunifuTextBox1.Text}/" + $"/{bunifuTextBox1.Text}.txt")))// Проверка существования директории имя пользователя
+                                    if (File.Exists(Path.Combine(currentPath + "/Users" + $"/{bunifuTextBox1.Text}/" + $"/{bunifuTextBox1.Text}.rtf")))// Проверка существования директории имя пользователя
                                     {
-                                        using (StreamReader sr = File.OpenText(currentPath + "/Users" + $"/{bunifuTextBox1.Text}/" + $"/{bunifuTextBox1.Text}.txt"))// Открытие файла имени пользователя
+                                        using (StreamReader sr = File.OpenText(currentPath + "/Users" + $"/{bunifuTextBox1.Text}/" + $"/{bunifuTextBox1.Text}.rtf"))// Открытие файла имени пользователя
                                         {
                                             string password = Shifr.EncodeDecrypt(sr.ReadLine());// считываем пароль
                                             if (bunifuTextBox2.Text == password) // Если поле текст бокс == пароль

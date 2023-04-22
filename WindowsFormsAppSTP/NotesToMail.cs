@@ -27,12 +27,12 @@ namespace WindowsFormsAppSTP
             string currentPath = Directory.GetCurrentDirectory();// Берём координаты текущей директории
             try
             {
-                int sch = Convert.ToInt32(Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(2).First()));// Берём количество существующих файлов/нумерация
+                int sch = Convert.ToInt32(Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.rtf").Skip(2).First()));// Берём количество существующих файлов/нумерация
                 for (int i = 0; i < sch; i++)
                 {
-                    if (File.Exists(Path.Combine(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt"))) // Если файл с заметкой n существует
+                    if (File.Exists(Path.Combine(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.rtf"))) // Если файл с заметкой n существует
                     {
-                        Name = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").First() + " - " + File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").Skip(1).First();// Читаем название заметки
+                        Name = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.rtf").First() + " - " + File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.rtf").Skip(1).First();// Читаем название заметки
 
                         comboBox1.Items.Add($"{Name}");// Добавляем в комбо бокс
                     }
@@ -60,12 +60,12 @@ namespace WindowsFormsAppSTP
             string currentPath = Directory.GetCurrentDirectory();// Берём координаты текущей директории
             try
             {
-                int sch = Convert.ToInt32(Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(2).First()));// Берём количество существующих файлов/нумерация
+                int sch = Convert.ToInt32(Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.rtf").Skip(2).First()));// Берём количество существующих файлов/нумерация
                 for (int i = 0; i < sch; i++)
                 {
-                    if (File.Exists(Path.Combine(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt"))) // Если файл с заметкой n существует
+                    if (File.Exists(Path.Combine(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.rtf"))) // Если файл с заметкой n существует
                     {
-                        Name = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").First() + " - " + File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").Skip(1).First();// Читаем название заметки
+                        Name = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.rtf").First() + " - " + File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.rtf").Skip(1).First();// Читаем название заметки
                         if (Name.Contains(bunifuTextBox1.Text))
                         {
                             comboBox1.Items.Add($"{Name}");// Добавляем в комбо бокс
@@ -137,30 +137,30 @@ namespace WindowsFormsAppSTP
                         string messadge_text = "Your notes are:";
                         for (int i = 0; i < sch; i++)
                         {
-                            Name = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").First() + " - " + File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").Skip(1).First();// Читаем название заметки
+                            Name = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.rtf").First() + " - " + File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.rtf").Skip(1).First();// Читаем название заметки
 
                             if (comboBox2.Items.Contains(Name))
                             {
-                                if (!File.Exists(currentPath + "/Users" + $"/{user_name}/" + $"/{File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").First()}.txt"))
+                                if (!File.Exists(currentPath + "/Users" + $"/{user_name}/" + $"/{File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.rtf").First()}.rtf"))
                                 {
-                                    File.Copy(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt", currentPath + "/Users" + $"/{user_name}/" + $"/{File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").First()}.txt");
+                                    File.Copy(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.rtf", currentPath + "/Users" + $"/{user_name}/" + $"/{File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.rtf").First()}.rtf");
                                 }
                                 messadge_text += " " + File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").First() + ";";
-                                array[array_sch] = currentPath + "/Users" + $"/{user_name}/" + $"/{File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").First()}.txt";
+                                array[array_sch] = currentPath + "/Users" + $"/{user_name}/" + $"/{File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.rtf").First()}.rtf";
                                 array_sch++;
                             }
                         }
-                        string mail = Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(1).First());
+                        string mail = Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.rtf").Skip(1).First());
                         Mail.SendFile(user_name, $"{mail}", $"Ditary notes request", messadge_text+"\nThanks for using our app!\nEnjoy)", array);
                         for (int i = 0; i < sch; i++)
                         {
-                            Name = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").First() + " - " + File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").Skip(1).First();// Читаем название заметки
+                            Name = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.rtf").First() + " - " + File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.rtf").Skip(1).First();// Читаем название заметки
 
                             if (comboBox2.Items.Contains(Name))
                             {
-                                if (File.Exists(currentPath + "/Users" + $"/{user_name}/" + $"/{File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").First()}.txt"))
+                                if (File.Exists(currentPath + "/Users" + $"/{user_name}/" + $"/{File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.rtf").First()}.rtf"))
                                 {
-                                    File.Delete(currentPath + "/Users" + $"/{user_name}/" + $"/{File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").First()}.txt");
+                                    File.Delete(currentPath + "/Users" + $"/{user_name}/" + $"/{File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.rtf").First()}.rtf");
                                 }
                             }
                         }

@@ -30,9 +30,9 @@ namespace WindowsFormsAppSTP
                 Sound.Button_Click_Sound();
                 try
                 {
-                    string sch = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(2).First();
-                    string password = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").First();
-                    using (StreamWriter fayl = new StreamWriter(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt"))// Создаём файл с именем пользователя в каталоге имени пользователя)
+                    string sch = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.rtf").Skip(2).First();
+                    string password = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.rtf").First();
+                    using (StreamWriter fayl = new StreamWriter(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.rtf"))// Создаём файл с именем пользователя в каталоге имени пользователя)
                     {
                         await fayl.WriteLineAsync($"{password}");// Вводим пароль
                         await fayl.WriteLineAsync($"{mail}");// Вводим почту

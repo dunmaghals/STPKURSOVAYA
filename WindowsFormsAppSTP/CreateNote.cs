@@ -12,6 +12,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Runtime.InteropServices;
 using System.Net;
 using System.Net.Sockets;
+using System.Messaging;
 
 namespace WindowsFormsAppSTP
 {
@@ -30,38 +31,38 @@ namespace WindowsFormsAppSTP
                     Sound.Button_Click_Sound();
                     try
                     {
-                        string sch = Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(2).First());// Берём количество существующих файлов/нумерация
+                        string sch = Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.rtf").Skip(2).First());// Берём количество существующих файлов/нумерация
                         bool check = false;
                         for(int i = 0; i < Convert.ToInt32(sch); i++) 
                         { 
-                            if(File.Exists(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt")) 
+                            if(File.Exists(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.rtf")) 
                             { 
 
                             }
                             else 
                             {
                                 check = true;
-                                using (StreamWriter fayl = new StreamWriter(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt"))// Создаём файл с именем пользователя в каталоге имени пользователя)
+                                using (StreamWriter fayl = new StreamWriter(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.rtf"))// Создаём файл с именем пользователя в каталоге имени пользователя)
                                 {
                                     await fayl.WriteLineAsync(bunifuTextBox1.Text);//Записываем название заметки в файл
                                     await fayl.WriteLineAsync(dateTimePicker1.Text);//Записываем дату заметки в файл
                                     await fayl.WriteAsync(richTextBox1.Text);//Записываем заметку бокс в файл
                                 }
-                                break;
+                            break;
                             }
                         }
                         if (check == false)
                         {
-                            using (StreamWriter fayl = new StreamWriter(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{sch}.txt"))// Создаём файл с именем пользователя в каталоге имени пользователя)
+                            using (StreamWriter fayl = new StreamWriter(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{sch}.rtf"))// Создаём файл с именем пользователя в каталоге имени пользователя)
                             {
                                 await fayl.WriteLineAsync(bunifuTextBox1.Text);//Записываем название заметки в файл
                                 await fayl.WriteLineAsync(dateTimePicker1.Text);//Записываем дату заметки в файл
                                 await fayl.WriteAsync(richTextBox1.Text);//Записываем заметку бокс в файл
                             }
                             sch = Convert.ToString(Convert.ToInt32(sch) + 1);// Увеличиваем счётчик
-                            string password = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(0).First();// Берём пароль
-                            string mail = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(1).First();// Берём почту
-                            using (StreamWriter fayl = new StreamWriter(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt"))// Создаём файл с именем пользователя в каталоге имени пользователя)
+                            string password = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.rtf").Skip(0).First();// Берём пароль
+                            string mail = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.rtf").Skip(1).First();// Берём почту
+                            using (StreamWriter fayl = new StreamWriter(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.rtf"))// Создаём файл с именем пользователя в каталоге имени пользователя)
                             {
                                 await fayl.WriteLineAsync($"{password}");// Перезаписываем пароль
                                 await fayl.WriteLineAsync($"{mail}");// Перезаписываем почту
@@ -89,6 +90,22 @@ namespace WindowsFormsAppSTP
                 Sound.Button_Click_Mistake_Sound();
                 MessageBox.Show("Пустым поле имени быть не должно!");
             }
+        }
+
+        private void bunifuButton2_Click(object sender, EventArgs e)
+        {
+            FontDialog fontDialog = new FontDialog();
+            if(fontDialog.ShowDialog() == DialogResult.OK) 
+            { 
+                richTextBox1.Font=fontDialog.Font;
+            }
+        }
+
+        private void bunifuButton3_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDialog = new ColorDialog();
+            colorDialog.ShowDialog();
+            richTextBox1.SelectionColor = colorDialog.Color;
         }
     }
 }

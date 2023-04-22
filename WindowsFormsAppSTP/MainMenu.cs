@@ -29,11 +29,11 @@ namespace WindowsFormsAppSTP
         {
             InitializeComponent();
             Inet.StartServ();
+            string currentPath = Directory.GetCurrentDirectory();// Берём координаты текущей директории
             user_name = user_name_local;
             try 
             {
-                string currentPath = Directory.GetCurrentDirectory();// Берём координаты текущей директории
-                Sound.volume = Convert.ToInt32(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_sound.txt").First());
+                Sound.volume = Convert.ToInt32(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_sound.rtf").First());
             }
             catch
             {
@@ -45,6 +45,25 @@ namespace WindowsFormsAppSTP
             wplayer.URL = "Back_Music_1.mp3";
             wplayer.PlayStateChange += new WMPLib._WMPOCXEvents_PlayStateChangeEventHandler(wplayer_PlayStateChange);
             wplayer.controls.play();
+            DateTime today = DateTime.Today;
+            int sch = Convert.ToInt32(Shifr.EncodeDecrypt(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.rtf").Skip(2).First()));// Берём количество существующих файлов/нумерация
+            string text = "";
+            try
+            {
+                for (int i = 0; i < sch; i++)
+                {
+                    if (Convert.ToDateTime(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.rtf").Skip(1).First()).ToString() == today.ToString())
+                    {
+                        text += File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.rtf").First()+"\n";
+                    }
+                }
+                if (text != "")
+                MessageBox.Show("Следующие заметки были сделаны на текущую дату:\n"+text);
+            }
+            catch 
+            {
+
+            }
         }
         void wplayer_PlayStateChange(int NewState)
         {
@@ -84,12 +103,12 @@ namespace WindowsFormsAppSTP
         {
             //comboBox1.Items.Clear();
             string currentPath = Directory.GetCurrentDirectory();// Берём координаты текущей директории
-            int sch = Convert.ToInt32(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.txt").Skip(2).First());// Берём количество существующих файлов/нумерация
+            int sch = Convert.ToInt32(File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}.rtf").Skip(2).First());// Берём количество существующих файлов/нумерация
             for (int i = 0; i <sch; i++)
             {
-                if (File.Exists(Path.Combine(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt"))) // Если файл с заметкой n существует
+                if (File.Exists(Path.Combine(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.rtf"))) // Если файл с заметкой n существует
                 {
-                    Name = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.txt").First();// Читаем название заметки
+                    Name = File.ReadLines(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_Data{i}.rtf").First();// Читаем название заметки
                     //comboBox1.Items.Add($"{Name}");// Добавляем в комбо бокс
                 }
                 else// Если файл с заметкой не существует
@@ -132,7 +151,7 @@ namespace WindowsFormsAppSTP
             try 
             {
                 string currentPath = Directory.GetCurrentDirectory();// Берём выбранный путь приложения
-                using (StreamWriter fayl = new StreamWriter(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_sound.txt"))// Создаём файл с именем пользователя в каталоге имени пользователя)
+                using (StreamWriter fayl = new StreamWriter(currentPath + "/Users" + $"/{user_name}/" + $"/{user_name}_sound.rtf"))// Создаём файл с именем пользователя в каталоге имени пользователя)
                 {
                     await fayl.WriteLineAsync($"{Sound.volume}");// Вводим пароль
                 }
