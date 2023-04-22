@@ -18,6 +18,7 @@ namespace WindowsFormsAppSTP
         public Enter()
         {
             InitializeComponent();
+            
         }
 
         private void bunifuButton1_Click(object sender, EventArgs e)

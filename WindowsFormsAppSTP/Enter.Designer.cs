@@ -54,6 +54,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Mistral", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(387, 142);
@@ -66,9 +67,10 @@
             // bunifuPictureBox1
             // 
             this.bunifuPictureBox1.AllowFocused = false;
+            this.bunifuPictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.bunifuPictureBox1.AutoSizeHeight = true;
             this.bunifuPictureBox1.BorderRadius = 112;
-            this.bunifuPictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.bunifuPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuPictureBox1.Image")));
             this.bunifuPictureBox1.IsCircle = true;
             this.bunifuPictureBox1.Location = new System.Drawing.Point(0, 0);
@@ -86,6 +88,7 @@
             this.bunifuButton1.AllowAnimations = true;
             this.bunifuButton1.AllowMouseEffects = true;
             this.bunifuButton1.AllowToggling = false;
+            this.bunifuButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.bunifuButton1.AnimationSpeed = 200;
             this.bunifuButton1.AutoGenerateColors = false;
             this.bunifuButton1.AutoRoundBorders = false;
@@ -177,6 +180,7 @@
             // 
             this.bunifuTextBox1.AcceptsReturn = false;
             this.bunifuTextBox1.AcceptsTab = false;
+            this.bunifuTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.bunifuTextBox1.AnimationSpeed = 200;
             this.bunifuTextBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.bunifuTextBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
@@ -252,6 +256,7 @@
             // 
             this.bunifuTextBox2.AcceptsReturn = false;
             this.bunifuTextBox2.AcceptsTab = false;
+            this.bunifuTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.bunifuTextBox2.AnimationSpeed = 200;
             this.bunifuTextBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.bunifuTextBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
@@ -326,12 +331,13 @@
             // 
             // bunifuGradientPanel1
             // 
+            this.bunifuGradientPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.bunifuGradientPanel1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuGradientPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuGradientPanel1.BackgroundImage")));
             this.bunifuGradientPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bunifuGradientPanel1.BorderRadius = 1;
             this.bunifuGradientPanel1.Controls.Add(this.bunifuPictureBox1);
-            this.bunifuGradientPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.bunifuGradientPanel1.GradientBottomLeft = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(128)))), ((int)(((byte)(242)))));
             this.bunifuGradientPanel1.GradientBottomRight = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(222)))), ((int)(((byte)(255)))));
             this.bunifuGradientPanel1.GradientTopLeft = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(222)))), ((int)(((byte)(255)))));
@@ -347,6 +353,7 @@
             this.bunifuButton2.AllowAnimations = true;
             this.bunifuButton2.AllowMouseEffects = true;
             this.bunifuButton2.AllowToggling = false;
+            this.bunifuButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.bunifuButton2.AnimationSpeed = 200;
             this.bunifuButton2.AutoGenerateColors = false;
             this.bunifuButton2.AutoRoundBorders = false;
@@ -437,6 +444,7 @@
             this.bunifuButton3.AllowAnimations = true;
             this.bunifuButton3.AllowMouseEffects = true;
             this.bunifuButton3.AllowToggling = false;
+            this.bunifuButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.bunifuButton3.AnimationSpeed = 200;
             this.bunifuButton3.AutoGenerateColors = false;
             this.bunifuButton3.AutoRoundBorders = false;
