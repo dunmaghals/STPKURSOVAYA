@@ -55,7 +55,7 @@
             this.bunifuHSlider1.ElapsedColor = System.Drawing.Color.DodgerBlue;
             this.bunifuHSlider1.LargeChange = 10;
             this.bunifuHSlider1.Location = new System.Drawing.Point(47, 68);
-            this.bunifuHSlider1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.bunifuHSlider1.Margin = new System.Windows.Forms.Padding(5);
             this.bunifuHSlider1.Maximum = 100;
             this.bunifuHSlider1.Minimum = 0;
             this.bunifuHSlider1.MinimumSize = new System.Drawing.Size(0, 38);
@@ -90,7 +90,7 @@
             this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bunifuLabel1.Location = new System.Drawing.Point(199, 42);
-            this.bunifuLabel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuLabel1.Margin = new System.Windows.Forms.Padding(4);
             this.bunifuLabel1.Name = "bunifuLabel1";
             this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel1.Size = new System.Drawing.Size(137, 20);
@@ -108,7 +108,8 @@
             this.Controls.Add(this.bunifuLabel1);
             this.Controls.Add(this.bunifuHSlider1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(535, 185);
             this.Name = "SoundChange";
             this.Text = "SoundChange";
             this.ResumeLayout(false);

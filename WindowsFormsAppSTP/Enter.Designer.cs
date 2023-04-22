@@ -545,6 +545,7 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(671, 601);
             this.Name = "Enter";
             this.Text = "Вход";
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).EndInit();
