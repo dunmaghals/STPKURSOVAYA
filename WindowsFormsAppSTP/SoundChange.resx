@@ -120,11 +120,10 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="bunifuHSlider1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAb8AAAA0CAYAAAAaEzbdAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAACYSURBVHhe7dUxCoAwEETRvf/tkjYX2N5+I4F02ioo78Ev
-        p54AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4CU9a/ScU5Kkf1VjX91V
-        yzruR5Ikfbf1b/vqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHhWxAkF
-        odA/Cb/zQgAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAU8AAAAqCAYAAAAzg9mvAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABxSURBVHhe7dSxDcAgEATB7787SGngc+cPQiKy3QEz0oaX
+        XgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9KzRc05J0rsa5yq/WtbzP5Kku9v/eK4SAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAALhWxAIQbI8SwZ34PgAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="bunifuLabel1.BaseStylesheet" xml:space="preserve">
